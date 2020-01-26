@@ -4,10 +4,7 @@ import (
 	"fmt"
 	"image"
 	"image/jpeg"
-	"log"
 	"net/http"
-	"net/http/cookiejar"
-	"time"
 )
 
 func getImg(client *http.Client, url string) (img image.Image, err error) {
@@ -70,22 +67,22 @@ func GetVCodeCookie(client *http.Client, url string) (vcode string, err error) {
 	return vcode, nil
 }
 
-func main() {
-	jar, err := cookiejar.New(&cookiejar.Options{})
-
-	client := http.Client{
-		Jar:     jar,
-		Timeout: 20 * time.Second,
-	}
-	_, err = GetVCodeCookie(&client, "http://kdjw.hnust.edu.cn:8080/kdjw/verifycode.servlet")
-	if err != nil {
-		log.Fatal(err)
-	}
-	//fmt.Println(cookie[0].String())
-	//fmt.Printf("%+v", client.Jar.Cookies(&url.URL{
-	//	Scheme: "http",
-	//	Host:   "kdjw.hnust.edu.cn:8080",
-	//	Path:   "/kdjw",
-	//}))
-
-}
+//func main() {
+//	jar, err := cookiejar.New(&cookiejar.Options{})
+//
+//	client := http.Client{
+//		Jar:     jar,
+//		Timeout: 20 * time.Second,
+//	}
+//	_, err = GetVCodeCookie(&client, "http://kdjw.hnust.edu.cn:8080/kdjw/verifycode.servlet")
+//	if err != nil {
+//		log.Fatal(err)
+//	}
+//	//fmt.Println(cookie[0].String())
+//	//fmt.Printf("%+v", client.Jar.Cookies(&url.URL{
+//	//	Scheme: "http",
+//	//	Host:   "kdjw.hnust.edu.cn:8080",
+//	//	Path:   "/kdjw",
+//	//}))
+//
+//}

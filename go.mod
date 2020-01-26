@@ -1,3 +1,3 @@
-module vcode-go
+module vcode
 
 go 1.13
